@@ -5,7 +5,11 @@ package com.example.lenovo.mvptuorials.callData;
  */
 
 public abstract class GetCallback {
-    public interface login{
+    public interface onLoginFinish{
+        void onSuccess(String s);
+        void onFailure(String s);
+    }
+    public interface onSignUpFinish{
         void onSuccess(String s);
         void onFailure(String s);
     }
