@@ -32,7 +32,7 @@ public class LoginModelImpl implements LoginModel {
                 //  success=true;
                 String s= response.body();
                 try {
-                JSONObject object=new JSONObject(s);
+                      JSONObject object=new JSONObject(s);
 
                     if(s.matches(object.toString())){
                          listener.onSuccess(new JSONObject(s).getString("Account ID"));
