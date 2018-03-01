@@ -16,7 +16,7 @@ import retrofit2.Response;
  */
 
 public class LoginModelImpl implements LoginModel {
-    ApiInterface apiInterface;
+    ApiInterface apiInterface=ApiClient.getClient().create(ApiInterface.class);
 
     @Override
     public void requestLogin(String userName, String password, final GetCallback.onLoginFinish listener) {
@@ -24,25 +24,15 @@ public class LoginModelImpl implements LoginModel {
         // receiving a response from server
 
         String data="{'Mobile':"+userName+",'Password':'"+password+"'}";
-        apiInterface= ApiClient.getClient().create(ApiInterface.class);
-        Call<String> call = apiInterface.reposForUser(data);
+       // apiInterface= ApiClient.getClient().create(ApiInterface.class);
+        Call<String> call = apiInterface.loginApi(data);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 //  success=true;
                 String s= response.body();
-                try {
-                      JSONObject object=new JSONObject(s);
+                listener.onSuccess(s);
 
-                    if(s.matches(object.toString())){
-                         listener.onSuccess(new JSONObject(s).getString("Account ID"));
-                   }
-                   else{
-                         listener.onFailure(object.getString("Status"));
-                    }
-              } catch (JSONException e) {
-                e.printStackTrace();
-               }
             }
 
             @Override
@@ -51,6 +41,6 @@ public class LoginModelImpl implements LoginModel {
                 listener.onFailure(t.getMessage());
             }
         });
-    }
+    } //I hope it will be for this month only.
 
 }

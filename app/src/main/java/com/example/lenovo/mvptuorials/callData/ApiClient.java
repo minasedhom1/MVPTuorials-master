@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class ApiClient {
-    public static final String BASE_URL = "http://197.45.12.35/ibn-ammey/api/AccountServices/Signin_Account/";//"https://reqres.in/";
+    public static final String BASE_URL = "http://197.45.12.35/ibn-ammey/api/";//"https://reqres.in/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient(){

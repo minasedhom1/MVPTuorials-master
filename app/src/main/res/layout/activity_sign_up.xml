@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.lenovo.mvptuorials.Login.LoginActivity">
+    tools:context="com.example.lenovo.mvptuorials.SignUp.SignUpActivity"
+    android:orientation="vertical">
+
     <ProgressBar
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -22,8 +24,8 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/input_layout_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            >
             <EditText
                 android:id="@+id/username_et"
                 android:layout_width="match_parent"
@@ -34,32 +36,39 @@
                 />
 
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
             android:id="@+id/input_layout_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="password"
-            android:text="test"
-            android:inputType="textPassword"
-            />
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="password"
+                android:text="test"
+                android:inputType="textPassword"
+                />
         </android.support.design.widget.TextInputLayout>
-
-        <Button
-            android:id="@+id/signin_btn"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_repeat_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="sign in"/>
-
+            >
+            <EditText
+                android:id="@+id/repeat_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="password"
+                android:text="test"
+                android:inputType="textPassword"
+                />
+        </android.support.design.widget.TextInputLayout>
         <Button
-            android:id="@+id/go_signup_btn"
+            android:id="@+id/signup_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="go Sign Up"/>
+            android:text="sign up"/>
+    </LinearLayout>
 </LinearLayout>
-
-</FrameLayout>

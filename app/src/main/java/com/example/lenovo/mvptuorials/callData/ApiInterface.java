@@ -15,7 +15,9 @@ import retrofit2.http.Path;
 
 public interface ApiInterface {
     //@GET("/api/users?")
-    @POST("Login")
-    Call<String > reposForUser(@Body String data);
-  //  Call<ResponseBody> getUser();
+    @POST("AccountServices/Signin_Account/Login")
+    Call<String > loginApi(@Body String data);
+
+    @POST("AccountServices/SignUp_Account/CreateAccount")
+    Call<String> signUpApi(@Body String data);
 }

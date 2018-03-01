@@ -12,13 +12,14 @@ import android.widget.Toast;
 
 import com.example.lenovo.mvptuorials.HomeActivity;
 import com.example.lenovo.mvptuorials.R;
+import com.example.lenovo.mvptuorials.SignUp.SignUpActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
     private LoginPresenterImpl presenter;
     private ProgressBar progress;
     private EditText userNameEditText;
     private EditText passwordEditText;
-    private Button loginButton;
+    private Button loginButton,go_signup_btn;
     private TextInputLayout name_layout,password_layout;
 
     @Override
@@ -40,6 +41,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 String userName = userNameEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
                 presenter.onLoginClicked(userName,password);
+            }
+        });
+        go_signup_btn= (Button) findViewById(R.id.go_signup_btn);
+        go_signup_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this,SignUpActivity.class));
             }
         });
     }
@@ -73,7 +81,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void setPasswordError() {
-        name_layout.setError("password error");
+        password_layout.setError("password error");
 
     }
 }
